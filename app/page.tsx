@@ -2,9 +2,18 @@
 
 import Link from "next/link"
 import Image from "next/image"
+import { useState } from "react" // Import useState for dialog state
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card" // Import Card components
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog" // Import Dialog components
 import { Twitter, Award, Speaker, Code, BookOpen, CheckCircle } from "lucide-react" // Import relevant icons
 import { motion } from "framer-motion" // Import motion from framer-motion
 
@@ -167,6 +176,8 @@ const slideInRightVariants = {
 }
 
 export default function Component() {
+  const [selectedProduct, setSelectedProduct] = useState<(typeof projectsData)[0] | null>(null) // State to manage selected product for dialog
+
   const contactInfo = {
     phone1: "+91 6265834002",
     phone2: "8962864002",
@@ -440,14 +451,7 @@ export default function Component() {
         <Separator className="my-8 w-full max-w-4xl" />
 
         {/* Profile Section (formerly About) */}
-        <motion.section
-          id="profile"
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInVariants}
-          className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12"
-        >
+        <section id="profile" className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Profile</h2>
           <p className="mt-8 text-lg text-muted-foreground text-center max-w-2xl">
             Result-driven iOS engineer with 7+ years of experience in architecting, building, and maintaining scalable
@@ -455,7 +459,7 @@ export default function Component() {
             Fintech, Healthcare, and Real Estate domains. Known for delivering high-quality features with a strong focus
             on performance, accessibility, and user experience. Recognized speaker, mentor, and open-source contributor.
           </p>
-        </motion.section>
+        </section>
 
         <Separator className="my-8 w-full max-w-4xl" />
 
@@ -503,72 +507,119 @@ export default function Component() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true, amount: 0.5 }}
                 >
-                  <Card
-                    className={`h-full flex flex-col items-center text-center p-0 rounded-xl shadow-subtle-float transition-all duration-300 ease-in-out hover:scale-[1.01] hover:shadow-lg border ${themeClasses}`}
-                  >
-                    <div className="relative w-full h-48 overflow-hidden rounded-t-xl">
-                      <Image
-                        src={project.backgroundImage || "/placeholder.svg"}
-                        layout="fill"
-                        objectFit="cover"
-                        alt={`${project.title} App Screenshot`}
-                        className="rounded-t-xl"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent"></div>
-                    </div>
-                    <div className="relative -mt-12 z-10">
-                      <Image
-                        src={project.appIcon || "/placeholder.svg"}
-                        width={96}
-                        height={96}
-                        alt={`${project.title} App Icon`}
-                        className="rounded-2xl shadow-lg border-4 border-card-foreground/10"
-                      />
-                    </div>
-                    <CardHeader className="pt-4 pb-2">
-                      <CardTitle className={`text-2xl font-bold ${titleColorClass}`}>
-                        {project.subtitle.part1}
-                        {project.subtitle.part2}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="flex flex-col items-center justify-between p-4 pt-0 flex-grow">
-                      <p className="text-sm text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
-                      <Button
-                        asChild
-                        className={`mt-auto shadow-md hover:shadow-lg transition-shadow ${buttonBgClass}`}
+                  <Dialog onOpenChange={(open) => !open && setSelectedProduct(null)}>
+                    <DialogTrigger asChild>
+                      <Card
+                        className={`h-full flex flex-col items-center text-center p-0 rounded-xl shadow-subtle-float transition-all duration-300 ease-in-out hover:scale-[1.01] hover:shadow-lg border ${themeClasses} cursor-pointer`}
+                        onClick={() => setSelectedProduct(project)}
                       >
-                        <Link href={project.appStoreLink} target="_blank" rel="noopener noreferrer">
-                          View on App Store
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
+                        <div className="relative w-full h-48 overflow-hidden rounded-t-xl">
+                          <Image
+                            src={project.backgroundImage || "/placeholder.svg"}
+                            layout="fill"
+                            objectFit="cover"
+                            alt={`${project.title} App Screenshot`}
+                            className="rounded-t-xl"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent"></div>
+                        </div>
+                        <div className="relative -mt-12 z-10">
+                          <Image
+                            src={project.appIcon || "/placeholder.svg"}
+                            width={96}
+                            height={96}
+                            alt={`${project.title} App Icon`}
+                            className="rounded-2xl shadow-lg border-4 border-card-foreground/10"
+                          />
+                        </div>
+                        <CardHeader className="pt-4 pb-2">
+                          <CardTitle className={`text-2xl font-bold ${titleColorClass}`}>
+                            {project.subtitle.part1}
+                            {project.subtitle.part2}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="flex flex-col items-center justify-between p-4 pt-0 flex-grow">
+                          <p className="text-sm text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
+                          <Button
+                            asChild
+                            className={`mt-auto shadow-md hover:shadow-lg transition-shadow ${buttonBgClass}`}
+                          >
+                            <Link href={project.appStoreLink} target="_blank" rel="noopener noreferrer">
+                              View on App Store
+                            </Link>
+                          </Button>
+                        </CardContent>
+                      </Card>
+                    </DialogTrigger>
+                    {/* DialogContent is rendered outside the map, but its content depends on selectedProduct */}
+                  </Dialog>
                 </motion.div>
               )
             })}
           </div>
         </section>
 
+        {/* Product Detail Dialog */}
+        <Dialog open={!!selectedProduct} onOpenChange={(open) => !open && setSelectedProduct(null)}>
+          <DialogContent className="sm:max-w-[800px] max-h-[90vh] overflow-y-auto p-6 bg-card-gradient shadow-lg border rounded-xl">
+            {selectedProduct && (
+              <>
+                <DialogHeader>
+                  <DialogTitle
+                    className={`text-3xl font-bold ${selectedProduct.id === "walmart" ? "text-walmart-primary" : selectedProduct.id === "nykaa" ? "text-nykaa-primary" : selectedProduct.id === "digivalet" ? "text-digivalet-primary" : selectedProduct.id === "flexiasia" ? "text-flexiasia-primary" : selectedProduct.id === "kashish" ? "text-kashish-primary" : "text-primary"}`}
+                  >
+                    {selectedProduct.title}
+                  </DialogTitle>
+                  <DialogDescription className="text-muted-foreground text-base mt-2">
+                    {selectedProduct.description}
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="grid md:grid-cols-2 gap-6 mt-4">
+                  {selectedProduct.role && selectedProduct.role.length > 0 && (
+                    <div>
+                      <h5 className="text-lg font-semibold text-foreground mb-2">My Role:</h5>
+                      <ul className="list-inside list-disc space-y-1 text-muted-foreground text-sm max-h-48 overflow-y-auto pr-2 custom-scrollbar">
+                        {selectedProduct.role.map((item, i) => (
+                          <li key={i}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {selectedProduct.technologies && selectedProduct.technologies.length > 0 && (
+                    <div>
+                      <h5 className="text-lg font-semibold text-foreground mb-2">Technologies:</h5>
+                      <ul className="list-inside list-disc space-y-1 text-muted-foreground text-sm max-h-48 overflow-y-auto pr-2 custom-scrollbar">
+                        {selectedProduct.technologies.map((item, i) => (
+                          <li key={i}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+                <div className="mt-6 flex justify-center">
+                  <Button
+                    asChild
+                    className={`w-full md:w-auto shadow-md hover:shadow-lg transition-shadow ${selectedProduct.id === "walmart" ? "bg-walmart-primary hover:bg-walmart-primary/90" : selectedProduct.id === "nykaa" ? "bg-nykaa-primary hover:bg-nykaa-primary/90" : selectedProduct.id === "digivalet" ? "bg-digivalet-primary hover:bg-digivalet-primary/90" : selectedProduct.id === "flexiasia" ? "bg-flexiasia-primary hover:bg-flexiasia-primary/90" : selectedProduct.id === "kashish" ? "bg-kashish-primary hover:bg-kashish-primary/90" : "bg-primary hover:bg-primary/90"}`}
+                  >
+                    <Link href={selectedProduct.appStoreLink} target="_blank" rel="noopener noreferrer">
+                      View on App Store
+                    </Link>
+                  </Button>
+                </div>
+              </>
+            )}
+          </DialogContent>
+        </Dialog>
+
         <Separator className="my-8 w-full max-w-4xl" />
 
         {/* Technical Skills Section */}
-        <motion.section
-          id="skills"
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInVariants}
-          className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12"
-        >
+        <section id="skills" className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8">Technical Skills</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
             {Object.entries(skills).map(([category, items], index) => (
-              <motion.div
+              <div
                 key={category}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true, amount: 0.5 }}
                 className="bg-card-gradient p-6 rounded-xl shadow-subtle-float hover:shadow-lg transition-shadow duration-300 border"
               >
                 <h3 className="text-xl font-semibold text-primary mb-4 capitalize">
@@ -584,97 +635,65 @@ export default function Component() {
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.section>
+        </section>
 
         <Separator className="my-8 w-full max-w-4xl" />
 
         {/* Key Achievements Section (Front Dashboard) */}
-        <motion.section
+        <section
           id="achievements"
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInVariants}
           className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12"
         >
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8">Key Achievements</h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 w-full">
             {achievements.map((achievement, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true, amount: 0.5 }}
+                className="h-full flex flex-col items-center text-center p-6 shadow-subtle-float hover:shadow-lg transition-shadow duration-300 border bg-card-gradient"
               >
-                <Card className="h-full flex flex-col items-center text-center p-6 shadow-subtle-float hover:shadow-lg transition-shadow duration-300 border bg-card-gradient">
-                  <CardHeader className="pb-4">
-                    <achievement.icon className="h-10 w-10 text-primary mb-2" />
-                    <CardTitle className="text-xl font-semibold">{achievement.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-muted-foreground text-sm flex-grow">
-                    {achievement.description}
-                  </CardContent>
-                </Card>
-              </motion.div>
+                <CardHeader className="pb-4 text-center">
+                  <achievement.icon className="h-10 w-10 text-primary mb-2 mx-auto" />{" "}
+                  {/* Added mx-auto for block-level centering */}
+                  <CardTitle className="text-xl font-semibold">{achievement.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="text-muted-foreground text-sm flex-grow">{achievement.description}</CardContent>
+              </div>
             ))}
           </div>
-        </motion.section>
+        </section>
 
         <Separator className="my-8 w-full max-w-4xl" />
 
         {/* Education Section */}
-        <motion.section
-          id="education"
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInVariants}
-          className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12"
-        >
+        <section id="education" className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8">Education</h2>
           <div className="w-full space-y-6">
             {education.map((edu, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true, amount: 0.5 }}
                 className="bg-card-gradient p-6 rounded-xl shadow-subtle-float hover:shadow-lg transition-shadow duration-300 border"
               >
                 <h3 className="text-xl font-semibold text-primary">{edu.degree}</h3>
                 <p className="text-lg text-foreground mt-1">{edu.institution}</p>
                 {edu.years && <p className="text-muted-foreground text-sm">{edu.years}</p>}
                 {edu.details && <p className="text-muted-foreground mt-2">{edu.details}</p>}
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.section>
+        </section>
 
         <Separator className="my-8 w-full max-w-4xl" />
 
         {/* Professional Experience Section */}
-        <motion.section
-          id="experience"
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInVariants}
-          className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12"
-        >
+        <section id="experience" className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8">Professional Experience</h2>
           <div className="w-full space-y-12">
             {professionalExperience.map((job, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true, amount: 0.3 }}
                 className="bg-card-gradient p-6 rounded-xl shadow-subtle-float hover:shadow-lg transition-shadow duration-300 border"
               >
                 <h3 className="text-2xl font-bold text-primary">{job.title}</h3>
@@ -683,54 +702,35 @@ export default function Component() {
                 </p>
                 <p className="text-muted-foreground text-sm mt-1">{job.years}</p>
                 <ul className="mt-4 list-inside list-disc space-y-2 text-muted-foreground">
-                  {job.responsibilities.map((responsibility, i) => (
-                    <li key={i}>{responsibility}</li>
-                  ))}
+                  {job.responsibilities &&
+                    job.responsibilities.map((responsibility, i) => <li key={i}>{responsibility}</li>)}
                 </ul>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.section>
+        </section>
 
         <Separator className="my-8 w-full max-w-4xl" />
 
         {/* Hobbies Section */}
-        <motion.section
-          id="hobbies"
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInVariants}
-          className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12"
-        >
+        <section id="hobbies" className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8">Hobbies</h2>
           <ul className="flex flex-wrap justify-center gap-4 text-lg text-muted-foreground">
             {hobbies.map((hobby, index) => (
-              <motion.li
+              <li
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true, amount: 0.5 }}
                 className="bg-secondary px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow border"
               >
                 {hobby}
-              </motion.li>
+              </li>
             ))}
           </ul>
-        </motion.section>
+        </section>
 
         <Separator className="my-8 w-full max-w-4xl" />
 
         {/* Contact Section */}
-        <motion.section
-          id="contact"
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInVariants}
-          className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12"
-        >
+        <section id="contact" className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Get In Touch</h2>
           <p className="mt-4 max-w-2xl text-center text-lg text-muted-foreground">
             Feel free to connect with me through any of the platforms below.
@@ -811,7 +811,7 @@ export default function Component() {
               </Link>
             </p>
           </div>
-        </motion.section>
+        </section>
       </main>
 
       {/* Footer */}
