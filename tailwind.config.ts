@@ -1,7 +1,5 @@
 import type { Config } from "tailwindcss"
 
-// all in fixtures is set to tailwind v3 as interims solutions
-
 const config: Config = {
   darkMode: ["class"],
   content: [
@@ -16,10 +14,10 @@ const config: Config = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))", // This will be black
-        foreground: "hsl(var(--foreground))", // This will be white
+        background: "hsl(var(--background))", // This will be white
+        foreground: "hsl(var(--foreground))", // This will be very dark gray
         primary: {
-          DEFAULT: "hsl(var(--primary))", // This will be light green
+          DEFAULT: "hsl(var(--primary))", // This will be light green for general use
           foreground: "hsl(var(--primary-foreground))", // This will be a dark color for text on primary
         },
         secondary: {
@@ -63,6 +61,27 @@ const config: Config = {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Project-specific colors (only primary and foreground for text/buttons)
+        walmart: {
+          primary: "hsl(var(--walmart-primary))",
+          foreground: "hsl(var(--walmart-foreground))",
+        },
+        nykaa: {
+          primary: "hsl(var(--nykaa-primary))",
+          foreground: "hsl(var(--nykaa-foreground))",
+        },
+        digivalet: {
+          primary: "hsl(var(--digivalet-primary))",
+          foreground: "hsl(var(--digivalet-foreground))",
+        },
+        flexiasia: {
+          primary: "hsl(var(--flexiasia-primary))",
+          foreground: "hsl(var(--flexiasia-foreground))",
+        },
+        kashish: {
+          primary: "hsl(var(--kashish-primary))",
+          foreground: "hsl(var(--kashish-foreground))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -90,6 +109,9 @@ const config: Config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      boxShadow: {
+        "subtle-float": "0 4px 12px rgba(0, 0, 0, 0.04)", // A very light, subtle shadow
       },
     },
   },

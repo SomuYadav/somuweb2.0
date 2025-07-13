@@ -4,7 +4,8 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
-// Removed Twitter import from lucide-react as it's replaced by an image
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card" // Import Card components
+import { Twitter, Award, Speaker, Code, BookOpen, CheckCircle } from "lucide-react" // Import relevant icons
 import { motion } from "framer-motion" // Import motion from framer-motion
 
 // Define your project data here, extracted from the HTML
@@ -166,6 +167,176 @@ const slideInRightVariants = {
 }
 
 export default function Component() {
+  const contactInfo = {
+    phone1: "+91 6265834002",
+    phone2: "8962864002",
+    email1: "somendra.sy@gmail.com",
+    email2: "somendra007.sy@gmail.com",
+    email3: "somendra.sy@icloud.com",
+    linkedin: "https://www.linkedin.com/in/somendra-yadav/",
+    twitter: "https://twitter.com/Somendra_Dev",
+    github: "https://github.com/SomuYadav",
+    medium: "https://medium.com/@SomuYadav",
+    resume: "/placeholder-resume.pdf", // Keep placeholder for now
+  }
+
+  const achievements = [
+    {
+      icon: Award,
+      title: "Employee of the Year",
+      description: "Recognized at Digivalet (2019) and Dexbytes (2020) for delivering high-impact features.",
+    },
+    {
+      icon: Speaker,
+      title: "Featured Speaker",
+      description: "Presented on Compositional Layout & Combine at Indore Swift Meetup (2020).",
+    },
+    {
+      icon: Code,
+      title: "Open Source Contributor",
+      description: "Actively contributed to libraries like SKActivityIndicatorView and AppAuthWrapper.",
+    },
+    {
+      icon: BookOpen,
+      title: "Medium Author",
+      description: "Published over few articles focused on Swift, Combine, SwiftUI, and mobile architecture.",
+    },
+    {
+      icon: CheckCircle,
+      title: "High Quality Delivery",
+      description: "Delivered projects to millions of users with <2% crash rate and 90%+ test coverage.",
+    },
+  ]
+
+  const education = [
+    {
+      degree: "Bachelor of Engineering in Computer Science",
+      institution: "Rajiv Gandhi Technical University, Indore",
+      years: "2014 – 2018",
+      details: "CGPA: 7.5",
+    },
+    {
+      degree: "Higher Secondary (Science)",
+      institution: "Govt. Higher Secondary School, Hoshangabad",
+      years: "",
+      details: "85%",
+    },
+    {
+      degree: "Courses",
+      institution: "",
+      years: "",
+      details: "Attended WWDC (2017-2018) & IIT Madras 2017 AI and DSA Certification Program",
+    },
+  ]
+
+  const skills = {
+    languages: ["Swift", "Objective-C", "Java", "C++", "Python"],
+    frameworks: [
+      "UIKit",
+      "SwiftUI",
+      "Combine",
+      "Core Data",
+      "CallKit",
+      "RxSwift",
+      "ARKit",
+      "WidgetKit",
+      "VoIP",
+      "MetalKit",
+    ],
+    architectures: ["MVVM", "VIPER", "MVC", "MVP", "MVVM-Coordinator"],
+    designPatterns: ["Builder", "Adapter", "Singleton", "Facade", "Proxy", "State", "Coordinator"],
+    tools: [
+      "Git",
+      "CircleCI",
+      "Jenkins",
+      "Bitbucket",
+      "Firebase",
+      "Tuist",
+      "Splunk",
+      "OpenObserve",
+      "Xcode Instruments",
+    ],
+    apis: ["GraphQL", "REST", "Bluetooth (BLE)", "APNS", "FCM"],
+    testing: ["XCTest", "XCUITest", "A/B Testing", "Snapshot Testing"],
+    ui: ["Compositional Layout", "Split View", "Adaptive UI", "Accessibility"],
+    databaseStorage: ["MySQL", "SQLite"],
+  }
+
+  const professionalExperience = [
+    {
+      title: "Senior Software Engineer - iOS",
+      company: "Walmart(Cashi & Walmart: Shopping)",
+      location: "Bangalore",
+      years: "JAN 2022 - Present",
+      responsibilities: [
+        "Developed a centralised Analytics Manager within the platform team and modularised it via Swift Package Manager.",
+        "Built key Walmart e-commerce modules like Cart, Returns, and Plus using SwiftUI and Observable, promoting a modern reactive architecture.",
+        "Achieved 93% unit test coverage, leading to a 70% reduction in regression issues.",
+        "Reduced app crash rate from 6% to 0.5% by implementing custom crash and launch tracking mechanisms.",
+        "Designed and implemented a deep linking testing app, increasing QA team efficiency by 3×.",
+        "Integrated Apollo-based GraphQL architecture, improving network performance and data efficiency by 25%.",
+        "Raised accessibility compliance to 95+ by implementing custom semantic traits and full VoiceOver support.",
+        "Led Encryption and Secure storage initiatives for sensitive fintech workflows.",
+        "Mentored over four junior engineers and facilitated biweekly Swift code reviews to ensure code quality and knowledge sharing.",
+      ],
+    },
+    {
+      title: "Senior Software Engineer - iOS",
+      company: "Nykaa",
+      location: "Gurgaon",
+      years: "OCT 2021 - JAN 2022",
+      responsibilities: [
+        "Developed Product Detail Page Module using MVVM & SPM, across Nykaa beauty, fashion and men with single code base with cutting UI load time by 35%.",
+        "Built and automated CI/CD pipelines with Jenkins, decreasing release cycle by 50%.",
+        "Developed “Try It On” feature using AVFoundation & ML Kit, increasing user engagement.",
+        "Designed Composable Layouts for adaptive UI, improving reusability across apps.",
+      ],
+    },
+    {
+      title: "Product Engineer (iOS)",
+      company: "Digivalet",
+      location: "Indore",
+      years: "SEPT 2020 - AUG 2021",
+      responsibilities: [
+        "Built the Digivalet app from scratch and modernised CasaDigi with a butter user experience",
+        "Migrated 100% of legacy apps from Objective-C to Swift.",
+        "Delivered WatchOS and WidgetKit-based features for smart home automation apps.",
+        "Created MetalKit-based UI animations to optimize luxury hotel app experiences.",
+      ],
+    },
+    {
+      title: "iOS Developer",
+      company: "Consagous Technologies",
+      location: "Indore",
+      years: "AUG 2019 - APRIL 2020",
+      responsibilities: [
+        "Developed Hi-Cabs app used by 1M+ users; integrated real-time tracking and CoreML.",
+        "Built reusable Swift modules for API handling and offline caching using enums + Codable.",
+        "Implemented chat feature, CoreML, Speech Recognition, and Core Bluetooth.",
+      ],
+    },
+    {
+      title: "iOS Developer",
+      company: "Dexbytes Infotech",
+      location: "Indore",
+      years: "OCT 2018 - AUG 2019",
+      responsibilities: [
+        "Developed Aircon and Flexiasia apps with advanced VOIP features, also build few api in python.",
+        "Built VoIP-enabled apps using CallKit + Sinch.",
+        "Integrated Stripe payments and built network layers using Delegate + MVC patterns.",
+      ],
+    },
+    {
+      title: "iOS Intern",
+      company: "Natraj Infotech",
+      location: "Indore",
+      years: "MARCH 2017 - JULY 2018",
+      responsibilities: ["Created and published Kashish Shopping iPad app from scratch using UIKit."],
+    },
+  ]
+
+  const hobbies = ["Watching TV Series", "Dance", "Bike Riding", "Photography & Billiards", "Tech Blogging on iOS"]
+
   return (
     <div className="flex min-h-screen flex-col items-center bg-background text-foreground">
       {/* Header */}
@@ -173,29 +344,53 @@ export default function Component() {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md"
+        className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md shadow-sm"
       >
         <div className="container mx-auto flex w-full max-w-4xl items-center justify-between p-4 py-4">
           <Link href="#" className="text-2xl font-bold tracking-tight" prefetch={false}>
             Somu Yadav
           </Link>
           <nav className="hidden space-x-6 md:flex">
-            <Link href="#about" className="text-sm font-medium hover:text-primary transition-colors" prefetch={false}>
-              About
+            <Link href="#profile" className="text-sm font-medium hover:text-primary transition-colors" prefetch={false}>
+              Profile
             </Link>
             <Link
-              href="#projects"
+              href="#products"
               className="text-sm font-medium hover:text-primary transition-colors"
               prefetch={false}
             >
-              Projects
+              Products
+            </Link>
+            <Link href="#skills" className="text-sm font-medium hover:text-primary transition-colors" prefetch={false}>
+              Skills
+            </Link>
+            <Link
+              href="#achievements"
+              className="text-sm font-medium hover:text-primary transition-colors"
+              prefetch={false}
+            >
+              Achievements
+            </Link>
+            <Link
+              href="#education"
+              className="text-sm font-medium hover:text-primary transition-colors"
+              prefetch={false}
+            >
+              Education
+            </Link>
+            <Link
+              href="#experience"
+              className="text-sm font-medium hover:text-primary transition-colors"
+              prefetch={false}
+            >
+              Experience
             </Link>
             <Link href="#contact" className="text-sm font-medium hover:text-primary transition-colors" prefetch={false}>
               Contact
             </Link>
           </nav>
-          <Button variant="outline" className="hidden md:inline-flex bg-transparent hover:bg-gray-900" asChild>
-            <Link href="/placeholder-resume.pdf" target="_blank" rel="noopener noreferrer">
+          <Button variant="outline" className="hidden md:inline-flex bg-transparent hover:bg-gray-100" asChild>
+            <Link href={contactInfo.resume} target="_blank" rel="noopener noreferrer">
               Resume
             </Link>
           </Button>
@@ -206,14 +401,14 @@ export default function Component() {
         {/* Hero Section */}
         <section
           id="hero"
-          className="relative flex w-full items-center justify-center py-20 md:py-32 bg-gradient-to-b from-black to-background"
+          className="relative flex w-full items-center justify-center py-20 md:py-32 bg-gradient-to-b from-background to-background-end"
         >
-          <div className="container mx-auto flex max-w-4xl flex-col items-center px-4 text-center">
+          <div className="container mx-auto flex max-w-4xl flex-col items-center px-4 text-center relative z-10">
             <motion.h1
               initial={fadeInVariants.initial}
               animate={fadeInVariants.animate}
               transition={{ ...fadeInVariants.transition, delay: 0.2 }}
-              className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl"
+              className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-foreground"
             >
               <span className="text-primary">Somu </span>
               <span className="text-foreground">Yadav</span>
@@ -224,7 +419,7 @@ export default function Component() {
               transition={{ ...fadeInVariants.transition, delay: 0.4 }}
               className="mt-2 text-2xl text-muted-foreground md:text-3xl"
             >
-              iOS Engineer
+              Senior Software Engineer - iOS
             </motion.h2>
             <motion.div
               initial={fadeInVariants.initial}
@@ -233,7 +428,7 @@ export default function Component() {
               className="mt-8 flex gap-4"
             >
               <Button asChild className="shadow-md hover:shadow-lg transition-shadow">
-                <Link href="#projects">View My Work</Link>
+                <Link href="#products">View My Work</Link>
               </Button>
               <Button variant="outline" asChild className="shadow-md hover:shadow-lg transition-shadow bg-transparent">
                 <Link href="#contact">Get In Touch</Link>
@@ -242,99 +437,290 @@ export default function Component() {
           </div>
         </section>
 
-        <Separator className="my-12 w-full max-w-4xl" />
+        <Separator className="my-8 w-full max-w-4xl" />
 
-        {/* About Section */}
+        {/* Profile Section (formerly About) */}
         <motion.section
-          id="about"
+          id="profile"
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInVariants}
-          className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-12 md:py-20"
+          className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12"
         >
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">About Me</h2>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Profile</h2>
           <p className="mt-8 text-lg text-muted-foreground text-center max-w-2xl">
-            To utilize my abilities and talent to work in a challenging environment that would facilitate continuous
-            learning and exposure to ideas that achieve personal, professional and organizational growth.
+            Result-driven iOS engineer with 7+ years of experience in architecting, building, and maintaining scalable
+            mobile applications across iOS, iPadOS, tvOS, and watchOS platforms. Proven expertise in E-commerce,
+            Fintech, Healthcare, and Real Estate domains. Known for delivering high-quality features with a strong focus
+            on performance, accessibility, and user experience. Recognized speaker, mentor, and open-source contributor.
           </p>
         </motion.section>
 
-        <Separator className="my-12 w-full max-w-4xl" />
+        <Separator className="my-8 w-full max-w-4xl" />
 
-        {/* Projects Section */}
-        <section id="projects" className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-12 md:py-20">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8">My Projects</h2>
-          <div className="mt-8 flex flex-col gap-20">
-            {projectsData.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={index % 2 === 0 ? slideInLeftVariants.initial : slideInRightVariants.initial}
-                whileInView="animate"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={index % 2 === 0 ? slideInLeftVariants : slideInRightVariants}
-                className={`flex flex-col items-center gap-8 md:flex-row md:items-start ${
-                  index % 2 === 1 ? "md:flex-row-reverse" : ""
-                } bg-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300`}
-              >
-                <div className="w-full md:w-1/2">
-                  <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
-                    <Image
-                      src={project.backgroundImage || "/placeholder.svg"}
-                      width={500}
-                      height={600}
-                      alt={`${project.title} App Screenshot`}
-                      className="h-auto w-full rounded-lg object-cover shadow-md"
-                    />
-                  </motion.div>
-                </div>
-                <div className="w-full text-center md:w-1/2 md:text-left">
-                  <div className="mb-4 flex items-center justify-center md:justify-start">
-                    <Image
-                      src={project.appIcon || "/placeholder.svg"}
-                      width={64}
-                      height={64}
-                      alt={`${project.title} App Icon`}
-                      className="mr-4 rounded-xl shadow-md"
-                    />
-                    <h3 className="text-4xl font-bold tracking-tight">
-                      <span className="text-primary">{project.subtitle.part1}</span>
-                      <span className="text-primary">{project.subtitle.part2}</span>
-                    </h3>
-                  </div>
-                  <p className="text-lg text-muted-foreground">{project.description}</p>
-                  {project.role.length > 0 && (
-                    <>
-                      <h4 className="mt-6 text-xl font-semibold">My Role:</h4>
-                      <ul className="mt-2 list-inside list-disc space-y-1 text-muted-foreground">
-                        {project.role.map((item, i) => (
-                          <li key={i}>{item}</li>
-                        ))}
-                      </ul>
-                    </>
-                  )}
-                  {project.technologies.length > 0 && (
-                    <>
-                      <h4 className="mt-6 text-xl font-semibold">Technologies:</h4>
-                      <ul className="mt-2 list-inside list-disc space-y-1 text-muted-foreground">
-                        {project.technologies.map((item, i) => (
-                          <li key={i}>{item}</li>
-                        ))}
-                      </ul>
-                    </>
-                  )}
-                  <Button asChild className="mt-8 shadow-md hover:shadow-lg transition-shadow">
-                    <Link href={project.appStoreLink} target="_blank" rel="noopener noreferrer">
-                      View on App Store
-                    </Link>
-                  </Button>
-                </div>
-              </motion.div>
-            ))}
+        {/* Products Section (formerly Projects) */}
+        <section id="products" className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8">Products</h2>
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 w-full">
+            {projectsData.map((project, index) => {
+              // Determine the theme classes based on project ID
+              const themeClasses = "bg-card-gradient text-card-foreground"
+              let titleColorClass = "text-primary"
+              let buttonBgClass = "bg-primary hover:bg-primary/90"
+
+              switch (project.id) {
+                case "walmart":
+                  titleColorClass = "text-walmart-primary"
+                  buttonBgClass = "bg-walmart-primary hover:bg-walmart-primary/90"
+                  break
+                case "nykaa":
+                  titleColorClass = "text-nykaa-primary"
+                  buttonBgClass = "bg-nykaa-primary hover:bg-nykaa-primary/90"
+                  break
+                case "digivalet":
+                  titleColorClass = "text-digivalet-primary"
+                  buttonBgClass = "bg-digivalet-primary hover:bg-digivalet-primary/90"
+                  break
+                case "flexiasia":
+                  titleColorClass = "text-flexiasia-primary"
+                  buttonBgClass = "bg-flexiasia-primary hover:bg-flexiasia-primary/90"
+                  break
+                case "kashish":
+                  titleColorClass = "text-kashish-primary"
+                  buttonBgClass = "bg-kashish-primary hover:bg-kashish-primary/90"
+                  break
+                default:
+                  // Fallback to default primary theme
+                  break
+              }
+
+              return (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                >
+                  <Card
+                    className={`h-full flex flex-col items-center text-center p-0 rounded-xl shadow-subtle-float transition-all duration-300 ease-in-out hover:scale-[1.01] hover:shadow-lg border ${themeClasses}`}
+                  >
+                    <div className="relative w-full h-48 overflow-hidden rounded-t-xl">
+                      <Image
+                        src={project.backgroundImage || "/placeholder.svg"}
+                        layout="fill"
+                        objectFit="cover"
+                        alt={`${project.title} App Screenshot`}
+                        className="rounded-t-xl"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent"></div>
+                    </div>
+                    <div className="relative -mt-12 z-10">
+                      <Image
+                        src={project.appIcon || "/placeholder.svg"}
+                        width={96}
+                        height={96}
+                        alt={`${project.title} App Icon`}
+                        className="rounded-2xl shadow-lg border-4 border-card-foreground/10"
+                      />
+                    </div>
+                    <CardHeader className="pt-4 pb-2">
+                      <CardTitle className={`text-2xl font-bold ${titleColorClass}`}>
+                        {project.subtitle.part1}
+                        {project.subtitle.part2}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex flex-col items-center justify-between p-4 pt-0 flex-grow">
+                      <p className="text-sm text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
+                      <Button
+                        asChild
+                        className={`mt-auto shadow-md hover:shadow-lg transition-shadow ${buttonBgClass}`}
+                      >
+                        <Link href={project.appStoreLink} target="_blank" rel="noopener noreferrer">
+                          View on App Store
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              )
+            })}
           </div>
         </section>
 
-        <Separator className="my-12 w-full max-w-4xl" />
+        <Separator className="my-8 w-full max-w-4xl" />
+
+        {/* Technical Skills Section */}
+        <motion.section
+          id="skills"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInVariants}
+          className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12"
+        >
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8">Technical Skills</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+            {Object.entries(skills).map(([category, items], index) => (
+              <motion.div
+                key={category}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                className="bg-card-gradient p-6 rounded-xl shadow-subtle-float hover:shadow-lg transition-shadow duration-300 border"
+              >
+                <h3 className="text-xl font-semibold text-primary mb-4 capitalize">
+                  {category.replace(/([A-Z])/g, " $1").trim()}:
+                </h3>
+                <ul className="flex flex-wrap gap-2">
+                  {items.map((item, i) => (
+                    <li
+                      key={i}
+                      className="bg-secondary text-secondary-foreground px-4 py-2 rounded-full text-sm border"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
+        <Separator className="my-8 w-full max-w-4xl" />
+
+        {/* Key Achievements Section (Front Dashboard) */}
+        <motion.section
+          id="achievements"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInVariants}
+          className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12"
+        >
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8">Key Achievements</h2>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 w-full">
+            {achievements.map((achievement, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0.5 }}
+              >
+                <Card className="h-full flex flex-col items-center text-center p-6 shadow-subtle-float hover:shadow-lg transition-shadow duration-300 border bg-card-gradient">
+                  <CardHeader className="pb-4">
+                    <achievement.icon className="h-10 w-10 text-primary mb-2" />
+                    <CardTitle className="text-xl font-semibold">{achievement.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-muted-foreground text-sm flex-grow">
+                    {achievement.description}
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
+        <Separator className="my-8 w-full max-w-4xl" />
+
+        {/* Education Section */}
+        <motion.section
+          id="education"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInVariants}
+          className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12"
+        >
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8">Education</h2>
+          <div className="w-full space-y-6">
+            {education.map((edu, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                className="bg-card-gradient p-6 rounded-xl shadow-subtle-float hover:shadow-lg transition-shadow duration-300 border"
+              >
+                <h3 className="text-xl font-semibold text-primary">{edu.degree}</h3>
+                <p className="text-lg text-foreground mt-1">{edu.institution}</p>
+                {edu.years && <p className="text-muted-foreground text-sm">{edu.years}</p>}
+                {edu.details && <p className="text-muted-foreground mt-2">{edu.details}</p>}
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
+        <Separator className="my-8 w-full max-w-4xl" />
+
+        {/* Professional Experience Section */}
+        <motion.section
+          id="experience"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInVariants}
+          className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12"
+        >
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8">Professional Experience</h2>
+          <div className="w-full space-y-12">
+            {professionalExperience.map((job, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                className="bg-card-gradient p-6 rounded-xl shadow-subtle-float hover:shadow-lg transition-shadow duration-300 border"
+              >
+                <h3 className="text-2xl font-bold text-primary">{job.title}</h3>
+                <p className="text-lg text-foreground mt-1">
+                  {job.company} - {job.location}
+                </p>
+                <p className="text-muted-foreground text-sm mt-1">{job.years}</p>
+                <ul className="mt-4 list-inside list-disc space-y-2 text-muted-foreground">
+                  {job.responsibilities.map((responsibility, i) => (
+                    <li key={i}>{responsibility}</li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
+        <Separator className="my-8 w-full max-w-4xl" />
+
+        {/* Hobbies Section */}
+        <motion.section
+          id="hobbies"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInVariants}
+          className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12"
+        >
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8">Hobbies</h2>
+          <ul className="flex flex-wrap justify-center gap-4 text-lg text-muted-foreground">
+            {hobbies.map((hobby, index) => (
+              <motion.li
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                className="bg-secondary px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow border"
+              >
+                {hobby}
+              </motion.li>
+            ))}
+          </ul>
+        </motion.section>
+
+        <Separator className="my-8 w-full max-w-4xl" />
 
         {/* Contact Section */}
         <motion.section
@@ -343,7 +729,7 @@ export default function Component() {
           whileInView="animate"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInVariants}
-          className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-12 md:py-20"
+          className="container mx-auto flex max-w-4xl flex-col items-center px-4 py-8 md:py-12"
         >
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Get In Touch</h2>
           <p className="mt-4 max-w-2xl text-center text-lg text-muted-foreground">
@@ -356,7 +742,7 @@ export default function Component() {
               asChild
               className="shadow-sm hover:shadow-md transition-shadow bg-transparent"
             >
-              <Link href="https://www.linkedin.com/in/SomendraYadav/" target="_blank" rel="noopener noreferrer">
+              <Link href={contactInfo.linkedin} target="_blank" rel="noopener noreferrer">
                 <Image src="/images/linkedin.png" alt="LinkedIn" width={24} height={24} className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
@@ -367,8 +753,8 @@ export default function Component() {
               asChild
               className="shadow-sm hover:shadow-md transition-shadow bg-transparent"
             >
-              <Link href="https://twitter.com/Somendra_Dev" target="_blank" rel="noopener noreferrer">
-                <Image src="/images/twitter-icon.png" alt="Twitter" width={24} height={24} className="h-5 w-5" />
+              <Link href={contactInfo.twitter} target="_blank" rel="noopener noreferrer">
+                <Twitter className="h-5 w-5" />
                 <span className="sr-only">Twitter</span>
               </Link>
             </Button>
@@ -378,7 +764,7 @@ export default function Component() {
               asChild
               className="shadow-sm hover:shadow-md transition-shadow bg-transparent"
             >
-              <Link href="mailto:somendra.sy@gmail.com" className="flex items-center gap-2">
+              <Link href={`mailto:${contactInfo.email1}`} className="flex items-center gap-2">
                 <Image src="/images/email-icon.png" alt="Email" width={24} height={24} className="h-5 w-5" />
                 <span className="sr-only">Email</span>
               </Link>
@@ -389,7 +775,7 @@ export default function Component() {
               asChild
               className="shadow-sm hover:shadow-md transition-shadow bg-transparent"
             >
-              <Link href="https://github.com/SomuYadav" target="_blank" rel="noopener noreferrer">
+              <Link href={contactInfo.github} target="_blank" rel="noopener noreferrer">
                 <Image src="/images/github.png" alt="GitHub" width={24} height={24} className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </Link>
@@ -400,11 +786,30 @@ export default function Component() {
               asChild
               className="shadow-sm hover:shadow-md transition-shadow bg-transparent"
             >
-              <Link href="/placeholder-resume.pdf" target="_blank" rel="noopener noreferrer">
+              <Link href={contactInfo.resume} target="_blank" rel="noopener noreferrer">
                 <Image src="/images/cv-icon.png" alt="Resume" width={24} height={24} className="h-5 w-5" />
                 <span className="sr-only">Resume</span>
               </Link>
             </Button>
+          </div>
+          <div className="mt-4 text-center text-sm text-muted-foreground">
+            <p>
+              Phone: {contactInfo.phone1} | {contactInfo.phone2}
+            </p>
+            <p>
+              Email: {contactInfo.email1} / {contactInfo.email2} / {contactInfo.email3}
+            </p>
+            <p>
+              Medium:{" "}
+              <Link
+                href={contactInfo.medium}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
+              >
+                SomuYadav
+              </Link>
+            </p>
           </div>
         </motion.section>
       </main>
