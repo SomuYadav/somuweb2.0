@@ -78,14 +78,55 @@ body {
     --nykaa-primary: 338 97% 40%; /* Darker pink/red for contrast */
     --nykaa-foreground: 0 0% 100%; /* White text on Nykaa pink */
 
-    --digivalet-primary: 37 47% 40%; /* Darker golden yellow for contrast */
-    --digivalet-foreground: 0 0% 100%; /* White text on golden background */
+    /* Added individual Nykaa brand colors */
+    --nykaa-beauty-primary: 338 97% 40%; /* Hot pink for Beauty */
+    --nykaa-beauty-foreground: 0 0% 100%;
+
+    --nykaa-fashion-primary: 320 100% 30%; /* Dark pink for Fashion */
+    --nykaa-fashion-foreground: 0 0% 100%;
+
+    --nykaa-man-primary: 220 100% 25%; /* Navy blue for Man */
+    --nykaa-man-foreground: 0 0% 100%;
+
+    --digivalet-primary: 37 45% 71%; /* Golden for Digivalet */
+    --digivalet-foreground: 0 0% 0%; /* Black text on light background */
+
+    /* Added individual Digivalet brand colors */
+    --digivalet-office-primary: 37 45% 71%; /* Golden for Office */
+    --digivalet-office-foreground: 0 0% 0%;
+
+    --digivalet-tv-primary: 37 45% 71%; /* Golden for TV */
+    --digivalet-tv-foreground: 0 0% 0%;
 
     --flexiasia-primary: 10 90% 35%; /* Darker reddish-orange for contrast */
     --flexiasia-foreground: 0 0% 100%; /* White text on Flexiasia red */
 
     --kashish-primary: 170 70% 30%; /* Darker teal green for contrast */
     --kashish-foreground: 0 0% 100%; /* White text on Kashish teal */
+
+    /* MPL brand CSS variables (accessible red with white foreground) */
+    --mpl-primary: 0 85% 45%;
+    --mpl-foreground: 0 0% 100%;
+
+    /* Added Cashi brand colors */
+    --cashi-primary: 270 100% 35%; /* Purple dark for Cashi */
+    --cashi-foreground: 0 0% 100%;
+
+    /* Hi Cabs - yellow-orange mix */
+    --hi-cabs-primary: 35 100% 40%; /* Dark yellow-orange mix */
+    --hi-cabs-foreground: 0 0% 100%;
+
+    /* Aircon - sky blue */
+    --aircon-primary: 200 100% 50%; /* Sky blue */
+    --aircon-foreground: 0 0% 100%;
+
+    /* Dexbytes - dark sky blue */
+    --dexbytes-primary: 200 100% 30%; /* Dark sky blue */
+    --dexbytes-foreground: 0 0% 100%;
+
+    /* Updated CasaDigi to use the same color as Digivalet */
+    --casadigi-primary: 37 45% 71%; /* Same RGB(216, 192, 146) color */
+    --casadigi-foreground: 0 0% 0%;
   }
 }
 
