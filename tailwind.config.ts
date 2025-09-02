@@ -70,29 +70,9 @@ const config: Config = {
           primary: "hsl(var(--nykaa-primary))",
           foreground: "hsl(var(--nykaa-foreground))",
         },
-        "nykaa-beauty": {
-          primary: "hsl(var(--nykaa-beauty-primary))",
-          foreground: "hsl(var(--nykaa-beauty-foreground))",
-        },
-        "nykaa-fashion": {
-          primary: "hsl(var(--nykaa-fashion-primary))",
-          foreground: "hsl(var(--nykaa-fashion-foreground))",
-        },
-        "nykaa-man": {
-          primary: "hsl(var(--nykaa-man-primary))",
-          foreground: "hsl(var(--nykaa-man-foreground))",
-        },
         digivalet: {
           primary: "hsl(var(--digivalet-primary))",
           foreground: "hsl(var(--digivalet-foreground))",
-        },
-        "digivalet-office": {
-          primary: "hsl(var(--digivalet-office-primary))",
-          foreground: "hsl(var(--digivalet-office-foreground))",
-        },
-        "digivalet-tv": {
-          primary: "hsl(var(--digivalet-tv-primary))",
-          foreground: "hsl(var(--digivalet-tv-foreground))",
         },
         flexiasia: {
           primary: "hsl(var(--flexiasia-primary))",
@@ -101,26 +81,6 @@ const config: Config = {
         kashish: {
           primary: "hsl(var(--kashish-primary))",
           foreground: "hsl(var(--kashish-foreground))",
-        },
-        mpl: {
-          primary: "hsl(var(--mpl-primary))",
-          foreground: "hsl(var(--mpl-foreground))",
-        },
-        cashi: {
-          primary: "hsl(var(--cashi-primary))",
-          foreground: "hsl(var(--cashi-foreground))",
-        },
-        "hi-cabs": {
-          primary: "hsl(var(--hi-cabs-primary))",
-          foreground: "hsl(var(--hi-cabs-foreground))",
-        },
-        aircon: {
-          primary: "hsl(var(--aircon-primary))",
-          foreground: "hsl(var(--aircon-foreground))",
-        },
-        dexbytes: {
-          primary: "hsl(var(--dexbytes-primary))",
-          foreground: "hsl(var(--dexbytes-foreground))",
         },
       },
       borderRadius: {
@@ -152,9 +112,6 @@ const config: Config = {
       },
       boxShadow: {
         "subtle-float": "0 4px 12px rgba(0, 0, 0, 0.04)", // A very light, subtle shadow
-      },
-      spacing: {
-        "20": "5rem", // 80px
       },
     },
   },
