@@ -409,7 +409,7 @@ export default function Component() {
       degree: "Courses",
       institution: "",
       years: "",
-      details: "Attended WWDC (2017-2018) & IIT Madras 2017 AI and DSA Certification Program",
+      details: "Participated in WWDC (2017–2018) and IIT Madras 6-month Artificial Intelligence Program (2017–2018)",
     },
   ]
 
