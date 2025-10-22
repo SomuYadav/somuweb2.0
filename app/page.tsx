@@ -395,14 +395,14 @@ export default function Component() {
   const education = [
     {
       degree: "Bachelor of Engineering in Computer Science",
-      institution: "Rajiv Gandhi Technical University, Indore",
+      institution: "Machine Learning/AI ML(AI MUSIC RECOMMENDATION ENGINE)",
       years: "2014 – 2018",
       details: "CGPA: 7.5",
     },
     {
-      degree: "Higher Secondary (Science)",
-      institution: "Govt. Higher Secondary School, Hoshangabad",
-      years: "",
+      degree: "Higher Secondary (Mathematics)",
+      institution: "Mathematics Olympiad",
+      years: "2014",
       details: "85%",
     },
     {
