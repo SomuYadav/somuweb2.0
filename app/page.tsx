@@ -345,22 +345,37 @@ export default function Component() {
     {
       name: "SKActivityIndicatorView",
       url: "https://github.com/SachK13/SKActivityIndicatorView",
-      description: "Custom activity indicator view for iOS applications",
+      description:
+        "A lightweight and easy-to-use activity indicator for iOS apps. Provides customizable loading animations with smooth performance.",
+      image: "/images/ActivityIndicator.gif",
+      stars: 66,
+      forks: 21,
     },
     {
       name: "AppauthWrapper",
       url: "https://github.com/SomuYadav/AppauthWrapper",
-      description: "OAuth wrapper for iOS applications",
+      description:
+        "AppAuth extension framework that reduces boilerplate code for OAuth authentication. Provides simple methods for Sign-in and Sign-Out without managing complex authentication flows.",
+      stars: 5,
+      forks: 2,
     },
     {
-      name: "SwiftUI2",
+      name: "SwiftUI2 - Insta View",
       url: "https://github.com/SomuYadav/SwiftUI2",
-      description: "SwiftUI multiplatform design examples",
+      description:
+        "Instagram-like multiplatform app built with SwiftUI 2.0 components for iOS, iPadOS, and macOS. Features include feed, search, profile, and post creation with modern SwiftUI patterns.",
+      image: "/images/SwiftUI2.png",
+      stars: 32,
+      forks: 2,
     },
     {
       name: "iTunes ProgrammaticUI",
       url: "https://github.com/SomuYadav/iTunes-ProgrammaticUI-UICompositionalLayout-NSDiffableDataSource-",
-      description: "iTunes app clone with compositional layout and diffable data source",
+      description:
+        "Programmatic iTunes app UI demonstrating UICollectionViewCompositionalLayout, NSDiffableDataSource, SnapKit, Dark & Light Mode, custom AVPlayerViewController, and MVVM architecture.",
+      images: ["/images/Home1.png", "/images/Search1.png", "/images/Detail1.png", "/images/Detail2.png"],
+      stars: 16,
+      forks: 3,
     },
   ]
 
@@ -677,14 +692,46 @@ export default function Component() {
             {openSourceContributions.map((contribution, index) => (
               <div
                 key={index}
-                className="bg-card-gradient p-4 rounded-xl shadow-subtle-float hover:shadow-lg transition-shadow duration-300 border"
+                className="bg-card-gradient p-4 rounded-xl shadow-subtle-float hover:shadow-lg transition-shadow duration-300 border flex flex-col h-full"
               >
+                {contribution.image && (
+                  <div className="relative w-full h-32 mb-3 rounded-lg overflow-hidden">
+                    <Image
+                      src={contribution.image || "/placeholder.svg"}
+                      fill
+                      style={{ objectFit: "cover" }}
+                      alt={`${contribution.name} screenshot`}
+                      className="rounded-lg"
+                    />
+                  </div>
+                )}
+                {"images" in contribution && contribution.images && contribution.images.length > 0 && (
+                  <div className="w-full mb-3 rounded-lg overflow-hidden">
+                    <div className="grid grid-cols-2 gap-2">
+                      {contribution.images.map((img, imgIdx) => (
+                        <div key={imgIdx} className="relative w-full h-24 rounded-lg overflow-hidden">
+                          <Image
+                            src={img || "/placeholder.svg"}
+                            fill
+                            style={{ objectFit: "cover" }}
+                            alt={`${contribution.name} screenshot ${imgIdx + 1}`}
+                            className="rounded-lg"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
                 <h4 className="text-lg font-semibold text-primary mb-2">
                   <Link href={contribution.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
                     {contribution.name}
                   </Link>
                 </h4>
-                <p className="text-sm text-muted-foreground">{contribution.description}</p>
+                <p className="text-sm text-muted-foreground mb-3 flex-grow">{contribution.description}</p>
+                <div className="flex gap-4 text-xs text-muted-foreground">
+                  {contribution.stars && <span>⭐ {contribution.stars} stars</span>}
+                  {contribution.forks && <span>🔀 {contribution.forks} forks</span>}
+                </div>
               </div>
             ))}
           </div>
