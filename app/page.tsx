@@ -325,7 +325,7 @@ export default function Component() {
           <div className="space-y-4">
             <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl md:text-6xl">Somu Yadav</h1>
             <div className="mt-2">
-              <p className="text-xl text-muted-foreground sm:text-2xl">Senior Software Engineer - iOS</p>
+              <p className="text-xl text-muted-foreground sm:text-2xl">iOS Engineer</p>
             </div>
           </div>
           <div className="space-x-4">
@@ -637,7 +637,7 @@ export default function Component() {
               transition={{ ...fadeInVariants.transition, delay: 0.4 }}
               className="mt-1 text-2xl text-muted-foreground md:text-3xl"
             >
-              Senior Software Engineer - iOS
+              iOS Engineer
             </motion.h2>
             <motion.div
               initial={fadeInVariants.initial}
