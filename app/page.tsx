@@ -386,6 +386,7 @@ export default function Component() {
       url: "https://github.com/SomuYadav/AppauthWrapper",
       description:
         "AppAuth extension framework that reduces boilerplate code for OAuth authentication. Provides simple methods for Sign-in and Sign-Out without managing complex authentication flows.",
+      image: "/images/AppauthWrapper.png",
       stars: 5,
       forks: 2,
     },
