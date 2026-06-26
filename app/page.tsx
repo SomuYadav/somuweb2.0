@@ -20,6 +20,59 @@ import { motion } from "framer-motion" // Import motion from framer-motion
 // Define your project data here, extracted from the HTML
 const projectsData = [
   {
+    id: "microsoft",
+    title: "Microsoft",
+    subtitle: { part1: "Micro", part2: "soft" },
+    appIcon: "/images/MicrosoftBrand.png",
+    backgroundImage: "/images/Microsoft365Logo.jpeg",
+    description: `Senior iOS Engineer at Microsoft working on M365 Copilot and OfficeMobile iOS. Delivered high-impact features across Slim App modernization, notifications, scheduled prompts, deep-link routing, and AI-assisted development tools. Led cross-team collaboration, mentored engineers, and raised the bar on iOS architecture and AI-powered code review quality.`,
+    role: [
+      "Modernized Slim App activation architecture using dependency injection, dependency inversion, and handler/factory-based routing, reducing regressions and improving testability.",
+      "Delivered Scheduled Prompts feature end-to-end across iOS and Android, coordinating with multiple teams and creating shared platform modules to reduce duplication by 40%.",
+      "Authored 13 iOS skills for AI-assisted code review, improving suggestion quality by ~35% and grounding recommendations in Apple documentation and platform best practices.",
+      "Improved push notification and deep-link handling with reusable validation playbooks, converting ad-hoc testing into structured processes.",
+      "Led WXP cloud URL de-registration and deep-link routing to prevent misrouting of external SharePoint/OneDrive links.",
+      "Mentored junior engineers on code quality, testability, Swift concurrency, dependency injection, and PR hygiene.",
+      "Contributed to crash investigation, stability improvements, and accessibility compliance (95+%).",
+      "Created a VS Code extension bringing daily workflows into one sidebar with Skills Explorer, Build & Launch, OCE tools, Push Notification Testing, and Dev Tools.",
+    ],
+    products: [
+      {
+        name: "M365 Copilot iOS",
+        description: "Mobile AI assistant integrated with Microsoft 365 services including Teams, Outlook, and Documents.",
+        responsibilities: [
+          "Modernized legacy activation flows with dependency injection and handler-based routing",
+          "Implemented local and IRIS notification handling in Slim App path",
+          "Delivered Scheduled Prompts mobile integration with chat and automation management",
+          "Contributed to WXP Previewer POCs with preview expand behavior and chat continuity",
+        ],
+      },
+      {
+        name: "OfficeMobile iOS",
+        description: "Core Office productivity apps (Word, Excel, PowerPoint) on iOS platform.",
+        responsibilities: [
+          "Led notification and activation architecture modernization",
+          "Improved deep-link routing and universal links handling",
+          "Contributed to crash investigation and stability improvements",
+          "Mentored team on Swift concurrency and iOS best practices",
+        ],
+      },
+    ],
+    technologies: [
+      "Swift",
+      "SwiftUI",
+      "Async/Await",
+      "Concurrency",
+      "WidgetKit",
+      "App Intents",
+      "Dependency Injection",
+      "Push Notifications",
+      "Deep Linking",
+      "VS Code Extension Development",
+    ],
+    appStoreLink: "https://apps.apple.com/us/app/microsoft-365-copilot/id541164041",
+  },
+  {
     id: "mpl",
     title: "MPL",
     subtitle: { part1: "M", part2: "PL" },
@@ -274,59 +327,6 @@ const projectsData = [
     technologies: ["Swift", "Core Data", "IR Communication", "WidgetKit"],
     appStoreLink: "https://apps.apple.com/in/app/air-conditioner-pro-ac-remote/id6657988661",
   },
-  {
-    id: "microsoft",
-    title: "Microsoft",
-    subtitle: { part1: "Micro", part2: "soft" },
-    appIcon: "/images/MicrosoftBrand.png",
-    backgroundImage: "/images/Microsoft365Logo.jpeg",
-    description: `Senior iOS Engineer at Microsoft working on M365 Copilot and OfficeMobile iOS. Delivered high-impact features across Slim App modernization, notifications, scheduled prompts, deep-link routing, and AI-assisted development tools. Led cross-team collaboration, mentored engineers, and raised the bar on iOS architecture and AI-powered code review quality.`,
-    role: [
-      "Modernized Slim App activation architecture using dependency injection, dependency inversion, and handler/factory-based routing, reducing regressions and improving testability.",
-      "Delivered Scheduled Prompts feature end-to-end across iOS and Android, coordinating with multiple teams and creating shared platform modules to reduce duplication by 40%.",
-      "Authored 13 iOS skills for AI-assisted code review, improving suggestion quality by ~35% and grounding recommendations in Apple documentation and platform best practices.",
-      "Improved push notification and deep-link handling with reusable validation playbooks, converting ad-hoc testing into structured processes.",
-      "Led WXP cloud URL de-registration and deep-link routing to prevent misrouting of external SharePoint/OneDrive links.",
-      "Mentored junior engineers on code quality, testability, Swift concurrency, dependency injection, and PR hygiene.",
-      "Contributed to crash investigation, stability improvements, and accessibility compliance (95+%).",
-      "Created a VS Code extension bringing daily workflows into one sidebar with Skills Explorer, Build & Launch, OCE tools, Push Notification Testing, and Dev Tools.",
-    ],
-    products: [
-      {
-        name: "M365 Copilot iOS",
-        description: "Mobile AI assistant integrated with Microsoft 365 services including Teams, Outlook, and Documents.",
-        responsibilities: [
-          "Modernized legacy activation flows with dependency injection and handler-based routing",
-          "Implemented local and IRIS notification handling in Slim App path",
-          "Delivered Scheduled Prompts mobile integration with chat and automation management",
-          "Contributed to WXP Previewer POCs with preview expand behavior and chat continuity",
-        ],
-      },
-      {
-        name: "OfficeMobile iOS",
-        description: "Core Office productivity apps (Word, Excel, PowerPoint) on iOS platform.",
-        responsibilities: [
-          "Led notification and activation architecture modernization",
-          "Improved deep-link routing and universal links handling",
-          "Contributed to crash investigation and stability improvements",
-          "Mentored team on Swift concurrency and iOS best practices",
-        ],
-      },
-    ],
-    technologies: [
-      "Swift",
-      "SwiftUI",
-      "Async/Await",
-      "Concurrency",
-      "WidgetKit",
-      "App Intents",
-      "Dependency Injection",
-      "Push Notifications",
-      "Deep Linking",
-      "VS Code Extension Development",
-    ],
-    appStoreLink: "https://apps.apple.com/us/app/microsoft-365-copilot/id541164041",
-  },
 ]
 
 // Animation variants for common elements
@@ -515,6 +515,45 @@ export default function Component() {
   }
 
   const professionalExperience = [
+    {
+      title: "Senior iOS Engineer",
+      company: "Microsoft",
+      location: "Remote",
+      years: "JUNE 2025 — Present",
+      logo: "/images/MicrosoftBrand.png",
+      responsibilities: [
+        "Modernized Slim App activation architecture using dependency injection, dependency inversion, and handler/factory-based routing, reducing regressions and improving testability.",
+        "Delivered Scheduled Prompts feature end-to-end across iOS and Android, coordinating with multiple teams and creating shared platform modules to reduce duplication by 40%.",
+        "Authored 13 iOS skills for AI-assisted code review, improving suggestion quality by ~35% and grounding recommendations in Apple documentation and platform best practices.",
+        "Improved push notification and deep-link handling with reusable validation playbooks, converting ad-hoc testing into structured processes.",
+        "Led WXP cloud URL de-registration and deep-link routing to prevent misrouting of external SharePoint/OneDrive links.",
+        "Mentored junior engineers on code quality, testability, Swift concurrency, dependency injection, and PR hygiene.",
+        "Contributed to crash investigation, stability improvements, and accessibility compliance (95+%).",
+        "Created a VS Code extension bringing daily workflows into one sidebar with Skills Explorer, Build & Launch, OCE tools, Push Notification Testing, and Dev Tools.",
+      ],
+      products: [
+        {
+          name: "M365 Copilot iOS",
+          description: "Mobile AI assistant integrated with Microsoft 365 services including Teams, Outlook, and Documents.",
+          responsibilities: [
+            "Modernized legacy activation flows with dependency injection and handler-based routing",
+            "Implemented local and IRIS notification handling in Slim App path",
+            "Delivered Scheduled Prompts mobile integration with chat and automation management",
+            "Contributed to WXP Previewer POCs with preview expand behavior and chat continuity",
+          ],
+        },
+        {
+          name: "OfficeMobile iOS",
+          description: "Core Office productivity apps (Word, Excel, PowerPoint) on iOS platform.",
+          responsibilities: [
+            "Led notification and activation architecture modernization",
+            "Improved deep-link routing and universal links handling",
+            "Contributed to crash investigation and stability improvements",
+            "Mentored team on Swift concurrency and iOS best practices",
+          ],
+        },
+      ],
+    },
     {
       title: "SDE-3 iOS",
       company: "MPL (Mobile Premier League)",
