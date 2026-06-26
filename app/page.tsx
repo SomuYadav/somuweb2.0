@@ -24,7 +24,7 @@ const projectsData = [
     title: "M365 Copilot",
     subtitle: { part1: "M365", part2: "Copilot" },
     appIcon: "/images/MicrosoftM365.jpeg",
-    backgroundImage: "/images/Microsoft365Logo.jpeg",
+    backgroundImage: "/images/CopilotBG.webp",
     description: `Modernized legacy Slim App activation architecture, delivered Scheduled Prompts feature end-to-end, authored 13 iOS skills for AI-assisted code review, and improved notification/deep-link handling.`,
     role: [
       "Modernized Slim App activation architecture using dependency injection, dependency inversion, and handler/factory-based routing, reducing regressions and improving testability.",
