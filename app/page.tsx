@@ -25,7 +25,7 @@ const projectsData = [
     subtitle: { part1: "M365", part2: "Copilot" },
     appIcon: "/images/MicrosoftM365.jpeg",
     backgroundImage: "/images/CopilotBG.webp",
-    description: `Modernized legacy Slim App activation architecture, delivered Scheduled Prompts feature end-to-end, authored 13 iOS skills for AI-assisted code review, and improved notification/deep-link handling.`,
+    description: `Senior iOS Engineer working on M365 Copilot iOS. Modernized legacy Slim App activation architecture with 40% code duplication reduction, authored 13 iOS AI skills improving code review quality by 35%, delivered 8+ major features, mentored 5+ junior engineers, and achieved 95%+ accessibility compliance across 2M+ app installs.`,
     role: [
       "Modernized Slim App activation architecture using dependency injection, dependency inversion, and handler/factory-based routing, reducing regressions and improving testability.",
       "Delivered Scheduled Prompts feature end-to-end across iOS and Android, coordinating with multiple teams and creating shared platform modules to reduce duplication by 40%.",
