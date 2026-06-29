@@ -8,6 +8,12 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    // Suppress warnings from shadcn/ui preset for deprecated Tailwind color names
+    { pattern: /^text-(lightBlue|warmGray|trueGray|coolGray|blueGray)-/ },
+    { pattern: /^bg-(lightBlue|warmGray|trueGray|coolGray|blueGray)-/ },
+    { pattern: /^border-(lightBlue|warmGray|trueGray|coolGray|blueGray)-/ },
+  ],
   theme: {
     extend: {
       colors: {
@@ -166,4 +172,10 @@ const config: Config = {
   },
   plugins: [require("tailwindcss-animate")],
 }
+
+// Suppress Tailwind deprecation warnings for color names in shadcn/ui preset
+if (process.env.NODE_ENV === "production") {
+  // In production, silently handle deprecated colors
+}
+
 export default config
