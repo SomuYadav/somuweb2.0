@@ -122,6 +122,12 @@ const config: Config = {
           primary: "hsl(var(--dexbytes-primary))",
           foreground: "hsl(var(--dexbytes-foreground))",
         },
+        microsoft: {
+          primary: "hsl(var(--microsoft-primary))",
+          blue: "hsl(var(--microsoft-blue))",
+          purple: "hsl(var(--microsoft-purple))",
+          foreground: "hsl(var(--microsoft-foreground))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
