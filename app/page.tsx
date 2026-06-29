@@ -20,6 +20,36 @@ import { motion } from "framer-motion" // Import motion from framer-motion
 // Define your project data here, extracted from the HTML
 const projectsData = [
   {
+    id: "microsoft",
+    title: "M365 Copilot",
+    subtitle: { part1: "M365", part2: "Copilot" },
+    appIcon: "/images/MicrosoftM365.jpeg",
+    backgroundImage: "/images/CopilotBG.webp",
+    description: `Senior iOS Engineer working on M365 Copilot iOS. Modernized legacy Slim App activation architecture with 40% code duplication reduction, authored 13 iOS AI skills improving code review quality by 35%, delivered 8+ major features, mentored 5+ junior engineers, and achieved 95%+ accessibility compliance across 2M+ app installs.`,
+    role: [
+      "Modernized Slim App activation architecture using dependency injection, dependency inversion, and handler/factory-based routing, reducing regressions and improving testability.",
+      "Delivered Scheduled Prompts feature end-to-end across iOS and Android, coordinating with multiple teams and creating shared platform modules to reduce duplication by 40%.",
+      "Authored 13 iOS skills for AI-assisted code review, improving suggestion quality by ~35% and grounding recommendations in Apple documentation and platform best practices.",
+      "Improved push notification and deep-link handling with reusable validation playbooks, converting ad-hoc testing into structured processes.",
+      "Led WXP cloud URL de-registration and deep-link routing to prevent misrouting of external SharePoint/OneDrive links.",
+      "Mentored junior engineers on code quality, testability, Swift concurrency, dependency injection, and PR hygiene.",
+      "Contributed to crash investigation, stability improvements, and accessibility compliance (95+%).",
+      "Created a VS Code extension bringing daily workflows into one sidebar with Skills Explorer, Build & Launch, OCE tools, Push Notification Testing, and Dev Tools.",
+    ],
+    technologies: [
+      "Swift",
+      "SwiftUI",
+      "Async/Await",
+      "Concurrency",
+      "WidgetKit",
+      "App Intents",
+      "Dependency Injection",
+      "Push Notifications",
+      "Deep Linking",
+    ],
+    appStoreLink: "https://apps.apple.com/us/app/microsoft-365-copilot/id541164041",
+  },
+  {
     id: "mpl",
     title: "MPL",
     subtitle: { part1: "M", part2: "PL" },
@@ -356,6 +386,7 @@ export default function Component() {
       url: "https://github.com/SomuYadav/AppauthWrapper",
       description:
         "AppAuth extension framework that reduces boilerplate code for OAuth authentication. Provides simple methods for Sign-in and Sign-Out without managing complex authentication flows.",
+      image: "/images/AppauthWrapper.png",
       stars: 5,
       forks: 2,
     },
@@ -462,6 +493,27 @@ export default function Component() {
   }
 
   const professionalExperience = [
+    {
+      title: "Senior iOS Engineer",
+      company: "Microsoft",
+      location: "Remote",
+      years: "JUNE 2025 — Present",
+      logo: "/images/MicrosoftBrand.png",
+      responsibilities: [
+        "System Architecture: Architected an on-device computer vision pipeline using Core ML and the Apple Neural Engine, reducing cloud API costs by 40% and cutting latency from 1.2s to 15ms.",
+        "Technical Leadership: Led a cross-functional team to integrate local LLMs into the flagship iOS app, improving offline functionality and maintaining strict user privacy.",
+        "Performance & Scale: Optimized deep learning models for memory-constrained iOS devices, preventing app crashes and improving battery efficiency by 25%.",
+        "Developer Velocity: Championed the integration of generative AI tools into the mobile CI/CD pipeline, reducing pull-request cycle times by 30% through automated testing.",
+        "Modernized Slim App activation architecture using dependency injection, dependency inversion, and handler/factory-based routing, reducing regressions and improving testability.",
+        "Delivered Scheduled Prompts feature end-to-end across iOS and Android, coordinating with multiple teams and creating shared platform modules to reduce duplication by 40%.",
+        "Authored 13 iOS skills for AI-assisted code review, improving suggestion quality by ~35% and grounding recommendations in Apple documentation and platform best practices.",
+        "Improved push notification and deep-link handling with reusable validation playbooks, converting ad-hoc testing into structured processes.",
+        "Led WXP cloud URL de-registration and deep-link routing to prevent misrouting of external SharePoint/OneDrive links.",
+        "Mentored junior engineers on code quality, testability, Swift concurrency, dependency injection, and PR hygiene.",
+        "Contributed to crash investigation, stability improvements, and accessibility compliance (95+%).",
+        "Created a VS Code extension bringing daily workflows into one sidebar with Skills Explorer, Build & Launch, OCE tools, Push Notification Testing, and Dev Tools.",
+      ],
+    },
     {
       title: "SDE-3 iOS",
       company: "MPL (Mobile Premier League)",
@@ -750,6 +802,10 @@ export default function Component() {
               let buttonBgClass = "bg-primary hover:bg-primary/90"
 
               switch (project.id) {
+                case "microsoft":
+                  titleColorClass = "text-microsoft-primary"
+                  buttonBgClass = "bg-gradient-to-r from-microsoft-blue to-microsoft-purple hover:from-microsoft-blue/90 hover:to-microsoft-purple/90"
+                  break
                 case "walmart":
                   titleColorClass = "text-walmart-primary"
                   buttonBgClass = "bg-walmart-primary hover:bg-walmart-primary/90"
@@ -812,10 +868,13 @@ export default function Component() {
                 >
                   <Dialog onOpenChange={(open) => !open && setSelectedProduct(null)}>
                     <DialogTrigger asChild>
-                      <Card
-                        className={`h-full flex flex-col items-center text-center p-0 rounded-xl shadow-subtle-float transition-all duration-300 ease-in-out hover:scale-[1.01] hover:shadow-lg border ${themeClasses} cursor-pointer`}
+                      <div
                         onClick={() => setSelectedProduct(project)}
+                        className="cursor-pointer"
                       >
+                        <Card
+                          className={`h-full flex flex-col items-center text-center p-0 rounded-xl shadow-subtle-float transition-all duration-300 ease-in-out hover:scale-[1.01] hover:shadow-lg border ${themeClasses}`}
+                        >
                         <div className="relative w-full h-48 overflow-hidden rounded-t-xl">
                           <Image
                             src={project.backgroundImage || "/placeholder.svg"}
@@ -845,7 +904,7 @@ export default function Component() {
                           <p className="text-sm text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
                           <Button
                             asChild
-                            className={`mt-auto shadow-md hover:shadow-lg transition-shadow ${buttonBgClass}`}
+                            className={`mt-auto shadow-md hover:shadow-lg transition-shadow text-white ${buttonBgClass}`}
                           >
                             <Link href={project.appStoreLink} target="_blank" rel="noopener noreferrer">
                               View on App Store
@@ -853,6 +912,7 @@ export default function Component() {
                           </Button>
                         </CardContent>
                       </Card>
+                      </div>
                     </DialogTrigger>
                     {/* DialogContent is rendered outside the map, but its content depends on selectedProduct */}
                   </Dialog>
@@ -870,7 +930,9 @@ export default function Component() {
                 <DialogHeader>
                   <DialogTitle
                     className={`text-3xl font-bold ${
-                      selectedProduct.id === "walmart"
+                      selectedProduct.id === "microsoft"
+                        ? "text-microsoft-primary"
+                        : selectedProduct.id === "walmart"
                         ? "text-walmart-primary"
                         : selectedProduct.id === "nykaa-beauty"
                           ? "text-nykaa-beauty-primary"
@@ -943,7 +1005,9 @@ export default function Component() {
                   <Button
                     asChild
                     className={`w-full md:w-auto shadow-md hover:shadow-lg transition-shadow ${
-                      selectedProduct.id === "walmart"
+                      selectedProduct.id === "microsoft"
+                        ? "bg-gradient-to-r from-microsoft-blue to-microsoft-purple hover:from-microsoft-blue/90 hover:to-microsoft-purple/90"
+                        : selectedProduct.id === "walmart"
                         ? "bg-walmart-primary hover:bg-walmart-primary/90"
                         : selectedProduct.id === "nykaa-beauty"
                           ? "bg-nykaa-beauty-primary hover:bg-nykaa-beauty-primary/90"
