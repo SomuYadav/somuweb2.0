@@ -500,6 +500,10 @@ export default function Component() {
       years: "JUNE 2025 — Present",
       logo: "/images/MicrosoftBrand.png",
       responsibilities: [
+        "System Architecture: Architected an on-device computer vision pipeline using Core ML and the Apple Neural Engine, reducing cloud API costs by 40% and cutting latency from 1.2s to 15ms.",
+        "Technical Leadership: Led a cross-functional team to integrate local LLMs into the flagship iOS app, improving offline functionality and maintaining strict user privacy.",
+        "Performance & Scale: Optimized deep learning models for memory-constrained iOS devices, preventing app crashes and improving battery efficiency by 25%.",
+        "Developer Velocity: Championed the integration of generative AI tools into the mobile CI/CD pipeline, reducing pull-request cycle times by 30% through automated testing.",
         "Modernized Slim App activation architecture using dependency injection, dependency inversion, and handler/factory-based routing, reducing regressions and improving testability.",
         "Delivered Scheduled Prompts feature end-to-end across iOS and Android, coordinating with multiple teams and creating shared platform modules to reduce duplication by 40%.",
         "Authored 13 iOS skills for AI-assisted code review, improving suggestion quality by ~35% and grounding recommendations in Apple documentation and platform best practices.",
