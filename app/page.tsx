@@ -864,10 +864,13 @@ export default function Component() {
                 >
                   <Dialog onOpenChange={(open) => !open && setSelectedProduct(null)}>
                     <DialogTrigger asChild>
-                      <Card
-                        className={`h-full flex flex-col items-center text-center p-0 rounded-xl shadow-subtle-float transition-all duration-300 ease-in-out hover:scale-[1.01] hover:shadow-lg border ${themeClasses} cursor-pointer`}
+                      <div
                         onClick={() => setSelectedProduct(project)}
+                        className="cursor-pointer"
                       >
+                        <Card
+                          className={`h-full flex flex-col items-center text-center p-0 rounded-xl shadow-subtle-float transition-all duration-300 ease-in-out hover:scale-[1.01] hover:shadow-lg border ${themeClasses}`}
+                        >
                         <div className="relative w-full h-48 overflow-hidden rounded-t-xl">
                           <Image
                             src={project.backgroundImage || "/placeholder.svg"}
@@ -897,7 +900,7 @@ export default function Component() {
                           <p className="text-sm text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
                           <Button
                             asChild
-                            className={`mt-auto shadow-md hover:shadow-lg transition-shadow ${buttonBgClass}`}
+                            className={`mt-auto shadow-md hover:shadow-lg transition-shadow text-white ${buttonBgClass}`}
                           >
                             <Link href={project.appStoreLink} target="_blank" rel="noopener noreferrer">
                               View on App Store
@@ -905,6 +908,7 @@ export default function Component() {
                           </Button>
                         </CardContent>
                       </Card>
+                      </div>
                     </DialogTrigger>
                     {/* DialogContent is rendered outside the map, but its content depends on selectedProduct */}
                   </Dialog>
