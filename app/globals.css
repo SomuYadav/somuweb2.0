@@ -120,6 +120,12 @@ body {
     --aircon-primary: 200 100% 50%; /* Sky blue */
     --aircon-foreground: 0 0% 100%;
 
+    /* Microsoft - Light blue to purple gradient */
+    --microsoft-primary: 240 100% 50%; /* Mid-point of gradient */
+    --microsoft-blue: 210 100% 50%; /* Light blue */
+    --microsoft-purple: 270 100% 50%; /* Purple */
+    --microsoft-foreground: 0 0% 100%;
+
     /* Dexbytes - dark sky blue */
     --dexbytes-primary: 200 100% 30%; /* Dark sky blue */
     --dexbytes-foreground: 0 0% 100%;

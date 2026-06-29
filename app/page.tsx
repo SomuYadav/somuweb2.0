@@ -798,6 +798,10 @@ export default function Component() {
               let buttonBgClass = "bg-primary hover:bg-primary/90"
 
               switch (project.id) {
+                case "microsoft":
+                  titleColorClass = "text-microsoft-primary"
+                  buttonBgClass = "bg-gradient-to-r from-microsoft-blue to-microsoft-purple hover:from-microsoft-blue/90 hover:to-microsoft-purple/90"
+                  break
                 case "walmart":
                   titleColorClass = "text-walmart-primary"
                   buttonBgClass = "bg-walmart-primary hover:bg-walmart-primary/90"
@@ -918,7 +922,9 @@ export default function Component() {
                 <DialogHeader>
                   <DialogTitle
                     className={`text-3xl font-bold ${
-                      selectedProduct.id === "walmart"
+                      selectedProduct.id === "microsoft"
+                        ? "text-microsoft-primary"
+                        : selectedProduct.id === "walmart"
                         ? "text-walmart-primary"
                         : selectedProduct.id === "nykaa-beauty"
                           ? "text-nykaa-beauty-primary"
@@ -991,7 +997,9 @@ export default function Component() {
                   <Button
                     asChild
                     className={`w-full md:w-auto shadow-md hover:shadow-lg transition-shadow ${
-                      selectedProduct.id === "walmart"
+                      selectedProduct.id === "microsoft"
+                        ? "bg-gradient-to-r from-microsoft-blue to-microsoft-purple hover:from-microsoft-blue/90 hover:to-microsoft-purple/90"
+                        : selectedProduct.id === "walmart"
                         ? "bg-walmart-primary hover:bg-walmart-primary/90"
                         : selectedProduct.id === "nykaa-beauty"
                           ? "bg-nykaa-beauty-primary hover:bg-nykaa-beauty-primary/90"
